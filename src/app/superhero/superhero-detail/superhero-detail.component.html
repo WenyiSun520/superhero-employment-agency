@@ -1,0 +1,28 @@
+<div class="deroDetailPage">
+<span (click)="handleGoBack()"><span class="material-symbols-outlined">
+arrow_back
+</span>Go Back</span>
+  <h1>{{ heroName }} Information Detail</h1>
+  <p>Id: {{ Hero.heroId }}</p>
+  <div class="name">
+    <h2>Name: </h2>
+    <input type="text" row="20" placeholder="rename the hero..." *ngIf="toggle" (keyup.enter)="handleSubmit()" [(ngModel)] = "heroName" />
+    <p *ngIf="!toggle" (click)="handleOpenInputBox()">{{heroName}}</p>
+  </div>
+  <div class="skills">
+    <h2>Skills:</h2>
+    <ul>
+      <li *ngFor="let skill of Hero.skills">
+        {{ skill }}
+      </li>
+    </ul>
+  </div>
+  <div class="professions">
+    <h2>Professions:</h2>
+    <ul>
+      <li *ngFor="let pro of Hero.professions">
+        {{ pro }}
+      </li>
+    </ul>
+  </div>
+</div>
