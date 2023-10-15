@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {SuperheroModule } from './superhero/superhero.module'
-import { SuperheroListComponent } from './superhero/superhero-list/superhero-list.component';
+import { CrisisModule } from './crisis/crisis.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
@@ -15,7 +15,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SuperheroModule
+    SuperheroModule,
+    CrisisModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
