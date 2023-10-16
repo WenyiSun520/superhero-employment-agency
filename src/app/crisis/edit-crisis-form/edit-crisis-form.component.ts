@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { FormBuilder} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder,FormGroup,Validator, Validators} from '@angular/forms';
 import { CrisisService } from '../crisis.service';
 import { Crisis } from '../crisis';
 import { ActivatedRoute,NavigationStart,Router } from '@angular/router';
@@ -11,14 +11,15 @@ import { DialogService } from 'src/app/service/dialog.service';
   styleUrls: ['./edit-crisis-form.component.css']
 })
 export class EditCrisisFormComponent implements OnInit{
-  selectedCrisis:any  
+  selectedCrisis = new Crisis("crisis001","n/a","n/a","n/a") ;
   isSubmit:boolean = false
   crisisForm = this.formbuilder.group({
-    id:"",
-    name: "",
-    description: "",
-    location:""
+    id:[this.selectedCrisis.id,Validators.required],
+    name: [this.selectedCrisis.name,Validators.required],
+    description: [this.selectedCrisis.description],
+    location:[this.selectedCrisis.location,Validators.required]
   })
+  
 
   constructor(private formbuilder:FormBuilder, private crisisService:CrisisService, 
     private activeRoute:ActivatedRoute, private router:Router,private dialogService:DialogService){
@@ -34,32 +35,26 @@ export class EditCrisisFormComponent implements OnInit{
     this.activeRoute.queryParams.subscribe((params)=>{
       if(params['content']){
        let data = JSON.parse(params['content'])
-        this.selectedCrisis = new Crisis(data.id, data.name,data.description,data.location);
-        this.crisisForm.value.id = data.id;
-        this.crisisForm.value.name = data.name;
-        this.crisisForm.value.description = data.description;
-        this.crisisForm.value.location = data.location;
+        this.crisisForm.patchValue(data)
       }
     })
   }
 
 
-
- 
-
  
 
   handleSubmit():void{
-    let updatedCrisis = new Crisis(this.crisisForm.value.id ?? this.selectedCrisis.id, this.crisisForm.value.name ?? this.selectedCrisis.name, 
-    this.crisisForm.value.description ?? this.selectedCrisis.description, this.crisisForm.value.location ?? this.selectedCrisis.location)
-    this.crisisService.updateCrisis(updatedCrisis)
-    this.isSubmit = true;
+    if(this.crisisForm.valid){
+    console.log(this.crisisForm.value)
+    this.crisisService.updateCrisis(this.crisisForm.value)
     this.crisisForm.reset();
+    this.isSubmit = true;
+    }
   }
 
   handleCancel(): void{
      this.crisisForm.reset();
-     if(this.canDeactivate()){
+     if(this.canDeactivate() === true){
      this.router.navigate(['/app-crisis-list'])
      }
   

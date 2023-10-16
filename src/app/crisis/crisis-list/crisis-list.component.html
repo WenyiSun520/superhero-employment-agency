@@ -2,6 +2,7 @@
     <h1>Crisis Center</h1>
     <ol>
         <li *ngFor="let crisis of crisistList; let index = index">
+                  <span class="index">{{ index }}</span>
             <p (click)=" handleNavigation(index, crisis.id)">{{crisis.name}} </p>
         </li>
     </ol>

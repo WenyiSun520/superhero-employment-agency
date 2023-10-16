@@ -5,3 +5,23 @@
   'GRAD' 0,
   'opsz' 24
 }
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+
+h2 {
+   background-color:  rgb(39, 130, 113);
+  color:white;
+  border-radius: 5px;
+  border: none;
+  padding: 5px;
+  margin-left:10px;
+  width:200px
+}

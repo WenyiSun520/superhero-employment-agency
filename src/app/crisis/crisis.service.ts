@@ -15,7 +15,7 @@ export class CrisisService {
     return this.crisisList;
   }
 
-  updateCrisis(crisis: Crisis){
+  updateCrisis(crisis: any){
       let index = this.crisisList.findIndex((h)=> h.id === crisis.id)
       let selectedCrisis = this.getCrisisList()[index]
       selectedCrisis.name = crisis.name

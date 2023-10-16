@@ -1,0 +1,23 @@
+* {
+  color: rgb(28, 62, 58);
+  box-sizing: content-box;
+}
+nav {
+  margin:10px;
+}
+
+.nav-item {
+  text-decoration: none;
+  padding: 10px;
+  border: 1px solid gray;
+  background-color: gray;
+  border-radius: 10px;
+
+  margin: 5px;
+}
+
+.nav-item:active {
+  color: blue;
+}
+
+

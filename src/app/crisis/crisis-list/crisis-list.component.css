@@ -1,0 +1,30 @@
+* {
+  color: rgb(28, 62, 58);
+  box-sizing: content-box;
+}
+ol {
+  list-style-type: none;
+}
+li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30px;
+  margin-top:20px;
+}
+li span {
+  padding: 5px;
+  border-radius: 5px 0 0 5px;
+  background-color: rgb(39, 130, 113);
+  color: white;
+
+}
+
+li p {
+  padding: 5px;
+  border-radius: 0 5px 5px 0;
+  background-color: gray;
+  margin:0;
+
+
+}

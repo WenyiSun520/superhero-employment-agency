@@ -1,13 +1,26 @@
 <div class="deroDetailPage">
-<span (click)="handleGoBack()"><span class="material-symbols-outlined">
-arrow_back
-</span>Go Back</span>
-  <h1>{{ heroName }} Information Detail</h1>
-  <p>Id: {{ Hero.heroId }}</p>
+  <span class="material-symbols-outlined" (click)="handleGoBack()">
+    arrow_back
+  </span>
+  <h1>Information Detail:{{ heroName }}</h1>
+  <div class="id">
+    <h2>Id:</h2>
+    <p>{{ Hero.heroId }}</p>
+  </div>
+
   <div class="name">
-    <h2>Name: </h2>
-    <input type="text" row="20" placeholder="rename the hero..." *ngIf="toggle" (keyup.enter)="handleSubmit()" [(ngModel)] = "heroName" />
-    <p *ngIf="!toggle" (click)="handleOpenInputBox()">{{heroName}}</p>
+    <h2>Name:</h2>
+    <input
+      type="text"
+      row="20"
+      placeholder="rename the hero..."
+      *ngIf="toggle"
+      (keyup.enter)="handleSubmit()"
+      [(ngModel)]="heroName"
+    />
+    <p *ngIf="!toggle" (click)="handleOpenInputBox()">
+      {{ heroName }}<span class="material-symbols-outlined"> edit </span>
+    </p>
   </div>
   <div class="skills">
     <h2>Skills:</h2>

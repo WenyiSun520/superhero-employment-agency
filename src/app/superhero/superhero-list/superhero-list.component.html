@@ -1,12 +1,16 @@
 <div class="superheroListPage">
-<h1>Our Current SuperHero</h1>
-<ol>
-    <li *ngFor="let hero of superheros">
-        <p (click)="handleRedirectToDetailPage(hero.heroId)">{{hero.heroId}} - {{hero.name}}</p><button (click)="handleDeleteSuperhero(hero.heroId)">Remove the hero</button>
+  <h1>Our Current SuperHero</h1>
+  <ul>
+    <li *ngFor="let hero of superheros; let index = index">
+      <span class="index">{{ index }}</span>
+      <p (click)="handleRedirectToDetailPage(hero.heroId)">
+        {{ hero.heroId }} - {{ hero.name }}
+      </p>
+      <button class="btn" (click)="handleDeleteSuperhero(hero.heroId)">
+        Remove the hero
+      </button>
     </li>
-</ol>
+  </ul>
 </div>
 
-
 <app-add-hero-form></app-add-hero-form>
-

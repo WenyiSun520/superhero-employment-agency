@@ -1,41 +1,26 @@
 <div class="editCrisisForm">
   <h1>Update Crisis Information</h1>
-  <form [formGroup]="crisisForm">
+  <form [formGroup]="crisisForm" (ngSubmit)="handleSubmit()">
     <div>
-      <label for="name"> Name: </label>
-      <input
-        id="name"
-        type="text"
-        formControlName="name"
-        [(ngModel)]="selectedCrisis.name"
-        size="50"
-      />
+    <label for="name"> Name: </label>
+    <input id="name" type="text" formControlName="name" size="50" />
+    </div>
+    <div>
+    <label for="location"> Location: </label>
+    <input id="location" type="text" formControlName="location" size="50" />
+    </div>
+    <div>
+    <label for="description"> Description: </label>
+    <textarea
+      id="description"
+      type="text"
+      formControlName="description"
+      cols="40"
+      rows="10"
+    ></textarea>
     </div>
 
-    <div>
-      <label for="location"> Location: </label>
-      <input
-        id="location"
-        type="text"
-        formControlName="location"
-        [(ngModel)]="selectedCrisis.location"
-        size="50"
-      />
-    </div>
-
-    <div>
-      <label for="description"> Description: </label>
-      <textarea
-        id="description"
-        type="text"
-        formControlName="description"
-        [(ngModel)]="selectedCrisis.description"
-        cols="40"
-        rows="10"
-      ></textarea>
-    </div>
-
-    <button type="submit" (click)="handleSubmit()">Submit</button>
-    <button type="cancel" (click)="handleCancel()">Cancel</button>
+    <button type="submit"  class="btn" [disabled]="!crisisForm.valid">Submit</button>
+    <button type="cancel" class="btn" (click)="handleCancel()">Cancel</button>
   </form>
 </div>
