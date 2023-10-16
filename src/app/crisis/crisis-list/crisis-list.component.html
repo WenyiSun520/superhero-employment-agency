@@ -1,0 +1,10 @@
+<div class="crisis">
+    <h1>Crisis Center</h1>
+    <ol>
+        <li *ngFor="let crisis of crisistList; let index = index">
+            <p (click)=" handleNavigation(index, crisis.id)">{{crisis.name}} </p>
+        </li>
+    </ol>
+</div>
+
+<router-outlet></router-outlet>

@@ -13,12 +13,14 @@ export class SuperheroDetailComponent implements OnInit{
   Id: string
   Hero:any
   heroName:string
-  toggle:boolean = false;
+  toggle:boolean = false
+
 
 
 constructor(private superheroService:SuperheroService, private router:Router, private activedRouter:ActivatedRoute){
   this.Id = ""
   this.heroName = ""
+     console.log(this.activedRouter.snapshot.url.join('/'))
 
   }
   ngOnInit(): void {

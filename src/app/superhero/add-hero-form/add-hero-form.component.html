@@ -1,0 +1,24 @@
+<h1>Register a new hero</h1>
+<form [formGroup]="newHeroForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name"> New Hero Name </label>
+    <input id="name" type="text" formControlName="name" />
+  </div>
+
+  <div>
+    <label for="skills"> Skills(multiple skills seperated by comma) </label>
+    <input id="skills" type="text" formControlName="skills" row="30" />
+  </div>
+  <div>
+    <label for="professions">
+      Professions(multiple professions seperated by comma)
+    </label>
+    <input
+      id="professions"
+      type="text"
+      formControlName="professions"
+      row="30"
+    />
+  </div>
+  <button type="submit">Submit</button>
+</form>
